@@ -217,12 +217,15 @@ public class JPABean implements Serializable {
 	}
 
 	//task 1 c)
-	public List<Object[]> getAllAgeGroups() throws SQLException{
+	public List<AgeGroup> getAllAgeGroups() throws SQLException{
 		
-		String tempSelectJPQLQuery = "SELECT ag FROM AgeGroup";
+		String tempSelectJPQLQuery = "SELECT ag FROM AgeGroup ag ";
 		Query tempQuery = entityManager.createQuery(tempSelectJPQLQuery);
+
+		entityManager.getTransaction().begin();
 		
-		return getDBRecords(tempQuery);
+		List<AgeGroup> tmpGA = tempQuery.getResultList();
+		return tmpGA;
 	}
 	
 	public List<Object[]> getDBRecords (Query tempQuery){

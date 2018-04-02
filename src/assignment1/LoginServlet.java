@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 		if(jpaBean.getConnection(username, password)) {
 			tempSession.setAttribute("JPABean", jpaBean);
 			tempSession.setAttribute("status", "Loged in");
-            response.sendRedirect("./GeographicAreaClassificationList.jsp");
+            response.sendRedirect("./AgeGroupDataDisplay.jsp");
 		}
 		else {
 			tempSession.setAttribute("status", "Login failed");

@@ -1,3 +1,5 @@
+<%@page import="assignment1.JPABean"%>
+<%@page import="assignment1.AgeGroup"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -23,17 +25,18 @@
 <%@ page import ="java.util.List"%>
 
 <% 
-if(session.getAttribute("ageGroupsData") != null){
-
-	ArrayList<ArrayList> list = (ArrayList<ArrayList>) session.getAttribute("ageGroupsData");
-
-	for (ArrayList<String> data : list) {
+if(session.getAttribute("JPABean") != null){
+	
+	AgeGroup tempAgeGroup;
+	JPABean jpaBean = (JPABean)session.getAttribute("JPABean");
+	List<AgeGroup> tempList = jpaBean.getAllAgeGroups();
+	
+	for (AgeGroup listAG : tempList) {
 		out.println("<tr>");
-		for(String message : data){
-			out.println("<th>");
-			out.println(message);
-			out.println("</th>");
-		}
+		out.println("<th>");
+		out.println("<a href='./AgeGroupDataDisplay.jsp?id="+listAG.getAgeGroupID() + "'>" + 
+				listAG.getDescription() +"</a>");
+		out.println("</th>");
 		out.println("</tr>");
 	}
 }
