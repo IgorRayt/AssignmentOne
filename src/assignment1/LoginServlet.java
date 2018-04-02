@@ -9,11 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import assignment1.DatabaseHendler;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
+/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
+
+/**
+	 * 
+	 */
+
+//	private static final long serialVersionUID = 1L;
        
     public LoginServlet() {
         super();
@@ -27,7 +35,7 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		DatabaseHendler db;
+		JPABean jpaBean;
 		HttpSession tempSession = request.getSession();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -37,19 +45,16 @@ public class LoginServlet extends HttpServlet {
             tempSession.setAttribute("status", "Please Provide Login Credentials");
             response.sendRedirect("./LoginDisplay.jsp");
         }
-		
-		db = new DatabaseHendler(username, password);
-		
-		if (db.getConnectionStatus()) {
+		jpaBean = new JPABean();
+		if(jpaBean.getConnection(username, password)) {
+			tempSession.setAttribute("JPABean", jpaBean);
+			tempSession.setAttribute("status", "Loged in");
+            response.sendRedirect("./GeographicAreaClassificationList.jsp");
+		}
+		else {
 			tempSession.setAttribute("status", "Login failed");
             response.sendRedirect("./LoginDisplay.jsp");
 		}
-		
-				
-		tempSession.setAttribute("dbConnection", db.getConnection());
-		tempSession.setAttribute("status", "Loged in");
-        response.sendRedirect("./AreaClassificationDisplay.jsp");
-		
 	}
 
 }

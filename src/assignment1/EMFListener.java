@@ -1,6 +1,7 @@
 package assignment1;
 
 import java.io.Serializable;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
