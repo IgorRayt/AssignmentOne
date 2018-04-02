@@ -46,7 +46,7 @@ public class JPABean implements Serializable {
 
 		String tempSelectJPQLQuery = "SELECT ga FROM GeographicArea";
 		Query tempQuery = entityManager.createQuery(tempSelectJPQLQuery);
-		List<Object[]> tempList = tempQuery.getResultList();
+		List<Object> tempList = tempQuery.getResultList();
 		
 		return tempList;
 	
@@ -119,7 +119,7 @@ public class JPABean implements Serializable {
 		
 		String tempSelectJPQLQuery = "SELECT ag FROM AgeGroup";
 		Query tempQuery = entityManager.createQuery(tempSelectJPQLQuery);
-		List<Object[]> tempList = tempQuery.getResultList();
+		List<Object> tempList = tempQuery.getResultList();
 		
 		return tempList;
 	}
