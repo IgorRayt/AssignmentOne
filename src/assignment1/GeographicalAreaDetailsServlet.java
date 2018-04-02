@@ -1,5 +1,5 @@
 package assignment1;
-
+//Don't need this - this is used for assignment 1 not assignment 2
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

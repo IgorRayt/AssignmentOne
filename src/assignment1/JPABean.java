@@ -12,10 +12,11 @@ import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import javax.servlet.ServletContextEvent;
 
-public class LoginListener implements Serializable {
 
+//This class is where all the database queries will get the information for the lists
+public class JPABean implements Serializable {
 	
-    
+	
+	
 }

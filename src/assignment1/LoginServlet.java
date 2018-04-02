@@ -1,5 +1,6 @@
 package assignment1;
-
+//Don't need this - this is used for assignment 1 not assignment 2
+// Login listener will handle login/user logic
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

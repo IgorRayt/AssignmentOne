@@ -1,5 +1,5 @@
 package assignment1;
-
+//Don't need this - this is used for assignment 1 not assignment 2
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.ArrayList;
