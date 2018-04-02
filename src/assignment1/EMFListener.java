@@ -39,10 +39,11 @@ public class EMFListener implements Serializable {
     	return entityManagerFactory != null && entityManagerFactory.isOpen();
     }
 
-    public void createEntityManager() {
+    public static EntityManager createEntityManager(Map <String, String> tempEntityManagerProperties) {
     	entityManager = entityManagerFactory.createEntityManager();
 
         entityManager.getTransaction().begin();
+        return entityManager;
     }
     
 }
