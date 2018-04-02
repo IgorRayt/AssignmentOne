@@ -8,10 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Age Groups Details</title>
 </head>
-	<div class="topnav">
-  <a class="active" href="/AssignmentOne/AreaClassificationDisplay.jsp">Area Classification</a>
-  <a href="/AssignmentOne/AgeGroupDataServlet">Age Group Data</a>
-  <a href="/AssignmentOne/GeographicalAreaDisplay.jsp">Area Detail</a>
+		<div class="topnav">
+  <a class="active" href="/AssignmentOne/AgeGroupDataDisplay.jsp">AgeGroup</a>
+  <a href="/AssignmentOne/GeographicalAreaClassificationList.jsp">GeoArea</a>
 <body>
 	<h3>The age group details</h3>
 	<table style="width:100%">

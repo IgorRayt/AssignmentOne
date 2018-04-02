@@ -10,6 +10,9 @@
 </head>
 <body>
 	<h3>Geographic Area Classification List</h3>
+		<div class="topnav">
+  <a class="active" href="/AssignmentOne/AgeGroupDataDisplay.jsp">AgeGroup</a>
+  <a href="/AssignmentOne/GeographicalAreaClassificationList.jsp">GeoArea</a>
 	<table style="width:100%">
   		<tr>
     		<th>Geographic Area Name</th>
