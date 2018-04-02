@@ -16,6 +16,8 @@ import javax.servlet.ServletContextEvent;
 
 public class LoginListener implements Serializable {
 
-	
+	public void setUserCredentials(String username, String password) {
+		
+	}
     
 }
