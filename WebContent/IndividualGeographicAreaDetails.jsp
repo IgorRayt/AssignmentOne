@@ -97,8 +97,9 @@ if(session.getAttribute("JPABean") != null){
 	}
 	
 }
-%>
 
+%>
+</table>
 
 </body>
 </html>

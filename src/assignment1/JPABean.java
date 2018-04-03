@@ -18,7 +18,6 @@ import javax.persistence.criteria.ParameterExpression;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import assignment1.EMFListener;
-import assignment1.LoginListener;
 
 //This class is where all the database queries will get the information for the lists
 public class JPABean implements Serializable {
@@ -217,14 +216,15 @@ public class JPABean implements Serializable {
 	}
 
 	//task 1 c)
-	public List<AgeGroup> getAllAgeGroups() throws SQLException{
+	public List<Object[]> getAllAgeGroups() throws SQLException{
 		
-		String tempSelectJPQLQuery = "SELECT ag FROM AgeGroup ag ";
+		String tempSelectJPQLQuery = "SELECT a.ageGroup.description, sum(a.male),sum(a.female) FROM Age a "
+				+ "WHERE a.ageGroup.ageGroupID in (3,9,15,22,28,34,40,46,52,58,64,70,76,83,89,95,101,108,114,120,126) "
+				+ "GROUP BY a.ageGroup.description";
 		Query tempQuery = entityManager.createQuery(tempSelectJPQLQuery);
-
 		entityManager.getTransaction().begin();
 		
-		List<AgeGroup> tmpGA = tempQuery.getResultList();
+		List<Object[]> tmpGA = tempQuery.getResultList();
 		return tmpGA;
 	}
 	

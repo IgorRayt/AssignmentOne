@@ -1,5 +1,6 @@
 <%@page import="assignment1.JPABean"%>
 <%@page import="assignment1.AgeGroup"%>
+<%@page import="assignment1.Age"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -14,33 +15,47 @@
 <body>
 	<h3>The age group details</h3>
 	<table style="width:100%">
-  		<tr>
-    		<th>Description</th>
-    		<th>Male Number</th> 
-    		<th>Female Number</th>
-  		</tr>
+
 
 <%@ page import ="java.util.ArrayList"%>
 <%@ page import ="java.util.List"%>
+<%@ page import ="java.util.Iterator"%>
 
 <% 
 if(session.getAttribute("JPABean") != null){
 	
-	AgeGroup tempAgeGroup;
+	//AgeGroup tempAgeGroup;
 	JPABean jpaBean = (JPABean)session.getAttribute("JPABean");
-	List<AgeGroup> tempList = jpaBean.getAllAgeGroups();
+	List<Object[]> tempList = jpaBean.getAllAgeGroups();
+	Iterator <Object[]> tempListIterator = tempList.iterator();
+	List <String> tempOutputTable = new ArrayList <String>();
 	
-	for (AgeGroup listAG : tempList) {
-		out.println("<tr>");
-		out.println("<th>");
-		out.println("<a href='./AgeGroupDataDisplay.jsp?id="+listAG.getAgeGroupID() + "'>" + 
-				listAG.getDescription() +"</a>");
-		out.println("</th>");
-		out.println("</tr>");
+	while(tempListIterator.hasNext()){
+	Object[] tempResultSet = tempListIterator.next();
+    String tempAgeGroup = (String) tempResultSet[0];
+    String tempMale = (String) tempResultSet[1];
+    long tempFemale = (long) tempResultSet[2];
+    	
+    tempOutputTable.add(String.valueOf(tempAgeGroup));
+    tempOutputTable.add(String.valueOf(tempMale));
+    tempOutputTable.add(String.valueOf(tempFemale));
+
+	}
+	out.println("Age Group Data");
+	out.println("<tr>");
+	out.println("<th>Description</th>");
+	out.println("<th>Male</th>");
+	out.println("<th>Female</th>");
+	out.println("</tr>");
+	out.println("<tr>");
+	for(String tmp : tempOutputTable){
+	out.println("<th>");
+	out.println(tmp);
+	out.println("</th>");
 	}
 }
 %>
-
+</table>
 
 </body>
 </html>
