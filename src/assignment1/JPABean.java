@@ -22,15 +22,6 @@ import assignment1.EMFListener;
 //This class is where all the database queries will get the information for the lists
 public class JPABean implements Serializable {
 	
-	//private static final long serialVersionUID = -2949472089308311785L;
-	
-	//public EntityManager EMFListener.createEntityManager()
-	
-	//public Boolean isConnectionEstablish() throws SQLException
-	
-	//public void setCloseConnection() throws SQLException
-	
-	//public void setUserCredentials(String username, String password) throws SQLException\
 	
 	static EntityManagerFactory entityMF = null;
 	static EntityManager entityManager = null;
@@ -143,31 +134,6 @@ public class JPABean implements Serializable {
 
 		}
 		
-		/*
-		HouseHold tempHouseHold = new HouseHold();
-        
-        tempHouseHold.setHouseHoldSize(entityManager.find(HouseHoldSize.class, 3));
-        tempHouseHold.setCensusYear(entityManager.find(CensusYear.class, 1));
-        tempHouseHold.setHouseHoldsByAgeRange(entityManager.find(HouseHoldsByAgeRange.class, 7));
-        tempHouseHold.setHouseHoldType(entityManager.find(HouseHoldType.class, 4));
-        tempHouseHold.setTotalIncome(entityManager.find(TotalIncome.class, 15));
-        tempHouseHold.setHouseHoldEarners(entityManager.find(HouseHoldEarners.class, 3));
-        tempHouseHold.setNumberReported(0);
-        entityManager.persist(tempHouseHold);
-        String tempSelectJPQLQuery = "SELECT a, ag, cy, ga, hh, hhe, hhar, hhs, hht, ti FROM Age a, AgeGroup ag, CensusYear cy, GeographicArea ga, HouseHold hh "+
-        		", HouseHoldEarners hhe , HouseHoldsByAgeRange hhar , HouseHoldSize hhs , HouseHoldType hht , TotalIncome ti "
-        		+ "WHERE hht.description = :hhtDesc AND hhs.description = :hhsDesc AND hhar.description = :hharDesc AND hhe.description = :hheDesc AND ti.description = :tiDesc"
-        		+ " AND (ga.level = 1 OR ga.level = 0)";
-        
-        Query tempQuery = entityManager.createQuery(tempSelectJPQLQuery);
-        tempQuery.setParameter("hhtDesc", tempHouseHold.getHouseHoldType().getDescription());
-        tempQuery.setParameter("hhsDesc", tempHouseHold.getHouseHoldSize().getDescription());
-        tempQuery.setParameter("hharDesc", tempHouseHold.getHouseHoldsByAgeRange().getDescription());
-        tempQuery.setParameter("hheDesc", tempHouseHold.getHouseHoldEarners().getDescription());
-        tempQuery.setParameter("tiDesc", tempHouseHold.getTotalIncome().getDescription());
-        
-        return getDBRecords(tempQuery);
-        */
 		
 	}
 	//task 1 d)
