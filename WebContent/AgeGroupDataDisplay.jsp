@@ -49,9 +49,11 @@ if(session.getAttribute("JPABean") != null){
 	out.println("</tr>");
 	out.println("<tr>");
 	for(String tmp : tempOutputTable){
+	
 	out.println("<th>");
 	out.println(tmp);
 	out.println("</th>");
+	out.println("</tr>");
 	}
 }
 %>
